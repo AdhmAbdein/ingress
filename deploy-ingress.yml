@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-ing
+  labels:
+    dep: ing
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      dep: ing
+  template:
+    metadata:
+      name: pod-ing
+      labels:
+        dep: ing
+    spec:
+      containers:
+        - name: cont-ing
+          image: nginx
+          ports:
+            - containerPort: 80
